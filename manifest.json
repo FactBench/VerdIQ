@@ -1,20 +1,22 @@
 {
-  "name": "FactBench",
+  "name": "FactBench - Expert Product Reviews",
   "short_name": "FactBench",
-  "description": "Expert Product Analysis Platform",
-  "theme_color": "#0ea5e9",
-  "background_color": "#0f172a",
+  "description": "Expert analysis and testing of top products to help you make informed decisions",
+  "start_url": "/VerdIQ/",
   "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0ea5e9",
   "icons": [
     {
-      "src": "/VerdIQ/favicon-192x192.svg",
-      "sizes": "192x192",
+      "src": "/VerdIQ/assets/images/favicon.svg",
+      "sizes": "any",
       "type": "image/svg+xml"
     },
     {
-      "src": "/VerdIQ/favicon-512x512.svg",
+      "src": "/VerdIQ/assets/images/logo.svg",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }
