@@ -1,0 +1,79 @@
+<!-- Hero Section Component -->
+<section class="relative overflow-hidden">
+    <!-- Background gradient effect -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-50"></div>
+    
+    <!-- Grid pattern overlay -->
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%230ea5e9" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    
+    <div class="container mx-auto px-4 py-16 lg:py-24 relative z-10">
+        <div class="max-w-5xl mx-auto text-center">
+            <!-- Expert Badge -->
+            <div class="inline-flex items-center space-x-2 mb-6">
+                <div class="h-px w-16 bg-gradient-to-r from-transparent to-primary"></div>
+                <span class="badge badge-primary">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Expert Analysis
+                </span>
+                <div class="h-px w-16 bg-gradient-to-l from-transparent to-primary"></div>
+            </div>
+            
+            <!-- Main Headline -->
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 animate-fade-in">
+                <span class="bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent">
+                    {{headline}}
+                </span>
+            </h1>
+            
+            <!-- Subheadline -->
+            <p class="text-xl md:text-2xl text-gray-400 mb-8 animate-slide-up">
+                {{subheadline}}
+            </p>
+            
+            <!-- Trust Indicators -->
+            <div class="flex flex-wrap justify-center items-center gap-6 mb-8 text-sm text-gray-500">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>{{productsAnalyzed}} Products Analyzed</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-info" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>{{hoursOfTesting}}+ Hours of Testing</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                    </svg>
+                    <span>Expert Reviews</span>
+                </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#top-picks" class="btn-primary inline-flex items-center justify-center">
+                    View Top Picks
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </a>
+                <a href="#comparison" class="py-3 px-6 border border-primary/50 rounded-lg text-primary hover:bg-primary/10 transition-all duration-200 inline-flex items-center justify-center">
+                    Compare All
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Last Updated -->
+            <p class="mt-8 text-sm text-gray-600">
+                Last updated: <time datetime="{{lastUpdatedISO}}">{{lastUpdated}}</time>
+            </p>
+        </div>
+    </div>
+</section>

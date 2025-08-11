@@ -1,0 +1,165 @@
+{
+  "products": [
+    {
+      "name": "(4.9/5.0)",
+      "data": [
+        "(4.7/5.0)",
+        "(4.5/5.0)",
+        "(4.3/5.0)",
+        "(4.6/5.0)",
+        "(5.0/5.0)",
+        "(4.3/5.0)",
+        "(4.6/5.0)",
+        "(4.6/5.0)",
+        "(4.4/5.0)"
+      ]
+    },
+    {
+      "name": "1. Best OF THE BEST",
+      "data": [
+        "2. Best Overall",
+        "3. Best Cordless",
+        "4. Best for Above-Ground",
+        "5. Top Smart Features",
+        "6. Best for Large Pools",
+        "7. Best AI Navigation",
+        "8. Premium Cordless Clean",
+        "9. Best Filtration Versatility",
+        "10. Proven Cleaning Powerhouse"
+      ]
+    },
+    {
+      "name": "All In-Ground",
+      "data": [
+        "In-Ground (&lt;50ft)",
+        "In/Above-Ground",
+        "Above-Ground (&lt;30ft)",
+        "In-Ground (&lt;50ft)",
+        "All In-Ground (&lt;3444sf)",
+        "In-Ground (&lt;2152sf)",
+        "In-Ground",
+        "In-Ground (&lt;50ft)",
+        "In-Ground (&lt;60ft)"
+      ]
+    },
+    {
+      "name": "F/W/WL/S",
+      "data": [
+        "F/W",
+        "F/W",
+        "F Only",
+        "F/W/WL",
+        "F/W/WL/S",
+        "F/W/WL",
+        "F/W/WL",
+        "F/W/WL",
+        "F/W/WL"
+      ]
+    },
+    {
+      "name": "Dual-Layer (150μm+250μm)",
+      "data": [
+        "Fine Cartridge",
+        "180μm Fine Basket",
+        "Fine Basket (Ultra-Fine Opt.)",
+        "Large Canister",
+        "Dual-Layer (150μm+250μm)",
+        "Dual-Layer (180μm+10μm HEPA)",
+        "MicroMesh™ Ultra-Fine (3μm+180μm)",
+        "Multi-Media™ (Leaf,Fine,Ultra-Fine)",
+        "Large Canister"
+      ]
+    },
+    {
+      "name": "Yes / 10hr Surface",
+      "data": [
+        "No",
+        "Yes / 150 mi",
+        "No",
+        "No",
+        "Yes / 10hr Surface",
+        "Yes / 180 min",
+        "Yes / 180 min",
+        "No",
+        "No"
+      ]
+    },
+    {
+      "name": "HybridSense™ AI (Camera,TOF,IR,Ultra)",
+      "data": [
+        "CleverClean™",
+        "WavePath™ 2.0",
+        "CleverClean™",
+        "iAquaLink App / Adv. Sensors",
+        "HybridSense™ AI (Camera,TOF,IR,Ultra)",
+        "AI Vision Camera / Dirt Hunting",
+        "OmniSense+™ / FlexiPath™",
+        "CleverClean™ SmartNav 2.0",
+        "ActivMotion Sensor®"
+      ]
+    },
+    {
+      "name": "Dedicated Feature",
+      "data": [
+        "No",
+        "Partial",
+        "No",
+        "Yes",
+        "Dedicated Feature",
+        "Yes",
+        "Dedicated Feature",
+        "Yes",
+        "Yes"
+      ]
+    },
+    {
+      "name": "5-in-1 AI Cleaning",
+      "data": [
+        "Reliable All-Rounder",
+        "Simple Cordless Freedom",
+        "Top AG Value",
+        "Full App Control",
+        "Max Coverage AI",
+        "AI Dirt Detection",
+        "Ultra-Fine Filtration",
+        "Any Debris Champ",
+        "Vortex Vacuum Power"
+      ]
+    },
+    {
+      "name": "$$$$",
+      "data": [
+        "$$",
+        "$$",
+        "$",
+        "$$$",
+        "$$$$",
+        "$$",
+        "$$$",
+        "$$$",
+        "$$$"
+      ]
+    },
+    {
+      "name": "Read Review",
+      "data": [
+        "Read Review",
+        "Read Review",
+        "Read Review",
+        "Read Review",
+        "Read Review",
+        "Read Review",
+        "Read Review",
+        "Read Review",
+        "Read Review"
+      ]
+    }
+  ],
+  "criteria": [],
+  "priceGuide": {
+    "$": "$$):",
+    "$$": "$$$):",
+    "$$$": "$$$$):"
+  },
+  "extractedAt": "2025-07-31T14:51:03.364Z"
+}

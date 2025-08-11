@@ -1,0 +1,17 @@
+{
+  "url": "https://zoopy.com/best-robotic-pool-cleaners",
+  "extraction_date": "2025-07-31",
+  "quality_score": 82.0,
+  "products_found": 11,
+  "images_found": 1,
+  "missing_data": [
+    "Only 1 images found (expected 10+)"
+  ],
+  "extraction_method": "enhanced_parser",
+  "product_details": {
+    "names_extracted": 11,
+    "ratings_extracted": 11,
+    "badges_extracted": 11,
+    "user_ratings_extracted": 11
+  }
+}

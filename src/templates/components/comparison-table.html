@@ -1,0 +1,136 @@
+<!-- Comparison Table Component -->
+<div class="overflow-x-auto rounded-xl border border-base-300" x-data="{ activeRow: null }">
+    <table class="w-full">
+        <thead class="bg-base-200">
+            <tr>
+                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-300 uppercase tracking-wider">
+                    Feature
+                </th>
+                {{#each products}}
+                <th class="px-6 py-4 text-center text-sm font-semibold text-gray-300 uppercase tracking-wider">
+                    {{name}}
+                </th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-base-300">
+            <!-- Pool Type -->
+            <tr @mouseenter="activeRow = 'poolType'" 
+                @mouseleave="activeRow = null"
+                :class="{ 'bg-base-200/50': activeRow === 'poolType' }">
+                <td class="px-6 py-4 text-sm font-medium text-gray-300">
+                    Pool Type
+                </td>
+                {{#each products}}
+                <td class="px-6 py-4 text-center">
+                    <span class="text-sm text-gray-100">{{poolType}}</span>
+                </td>
+                {{/each}}
+            </tr>
+            
+            <!-- Coverage -->
+            <tr @mouseenter="activeRow = 'coverage'" 
+                @mouseleave="activeRow = null"
+                :class="{ 'bg-base-200/50': activeRow === 'coverage' }">
+                <td class="px-6 py-4 text-sm font-medium text-gray-300">
+                    Coverage
+                </td>
+                {{#each products}}
+                <td class="px-6 py-4 text-center">
+                    <div class="flex justify-center space-x-1">
+                        {{#if cleanFloor}}
+                        <span class="badge badge-success text-xs">Floor</span>
+                        {{/if}}
+                        {{#if cleanWalls}}
+                        <span class="badge badge-success text-xs">Walls</span>
+                        {{/if}}
+                        {{#if cleanWaterline}}
+                        <span class="badge badge-success text-xs">Waterline</span>
+                        {{/if}}
+                    </div>
+                </td>
+                {{/each}}
+            </tr>
+            
+            <!-- Navigation -->
+            <tr @mouseenter="activeRow = 'navigation'" 
+                @mouseleave="activeRow = null"
+                :class="{ 'bg-base-200/50': activeRow === 'navigation' }">
+                <td class="px-6 py-4 text-sm font-medium text-gray-300">
+                    Navigation
+                </td>
+                {{#each products}}
+                <td class="px-6 py-4 text-center">
+                    <span class="text-sm text-gray-100">{{navigation}}</span>
+                </td>
+                {{/each}}
+            </tr>
+            
+            <!-- Runtime -->
+            <tr @mouseenter="activeRow = 'runtime'" 
+                @mouseleave="activeRow = null"
+                :class="{ 'bg-base-200/50': activeRow === 'runtime' }">
+                <td class="px-6 py-4 text-sm font-medium text-gray-300">
+                    Runtime
+                </td>
+                {{#each products}}
+                <td class="px-6 py-4 text-center">
+                    <span class="text-sm {{#if isCordless}}text-accent{{else}}text-gray-100{{/if}}">
+                        {{runtime}}
+                    </span>
+                </td>
+                {{/each}}
+            </tr>
+            
+            <!-- Smart Features -->
+            <tr @mouseenter="activeRow = 'smart'" 
+                @mouseleave="activeRow = null"
+                :class="{ 'bg-base-200/50': activeRow === 'smart' }">
+                <td class="px-6 py-4 text-sm font-medium text-gray-300">
+                    Smart Features
+                </td>
+                {{#each products}}
+                <td class="px-6 py-4 text-center">
+                    <div class="flex flex-col items-center space-y-1">
+                        {{#each smartFeatures}}
+                        <span class="text-xs text-gray-300">{{this}}</span>
+                        {{/each}}
+                    </div>
+                </td>
+                {{/each}}
+            </tr>
+            
+            <!-- Price -->
+            <tr @mouseenter="activeRow = 'price'" 
+                @mouseleave="activeRow = null"
+                :class="{ 'bg-base-200/50': activeRow === 'price' }"
+                class="border-t-2 border-base-300">
+                <td class="px-6 py-4 text-sm font-medium text-gray-300">
+                    Price Range
+                </td>
+                {{#each products}}
+                <td class="px-6 py-4 text-center">
+                    <span class="text-lg font-semibold text-accent">{{price}}</span>
+                </td>
+                {{/each}}
+            </tr>
+            
+            <!-- Action -->
+            <tr class="bg-base-200">
+                <td class="px-6 py-4 text-sm font-medium text-gray-300">
+                    Action
+                </td>
+                {{#each products}}
+                <td class="px-6 py-4 text-center">
+                    <a href="{{affiliateLink}}" 
+                       target="_blank" 
+                       rel="noopener nofollow"
+                       class="inline-block px-4 py-2 bg-primary hover:bg-sky-400 text-white text-sm font-medium rounded-lg transition-colors">
+                        View Deal
+                    </a>
+                </td>
+                {{/each}}
+            </tr>
+        </tbody>
+    </table>
+</div>

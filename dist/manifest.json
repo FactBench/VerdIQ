@@ -1,0 +1,22 @@
+{
+  "name": "FactBench - Expert Product Reviews",
+  "short_name": "FactBench",
+  "description": "Expert analysis and testing of top products to help you make informed decisions",
+  "start_url": "/VerdIQ/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "/VerdIQ/assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/VerdIQ/assets/images/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

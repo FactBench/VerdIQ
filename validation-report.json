@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-07-31T15:00:07.944Z",
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "summary": {
+    "totalProducts": 11,
+    "errorsFound": 0,
+    "warningsFound": 0
+  }
+}

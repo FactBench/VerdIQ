@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# FactBench - Expert Analysis Platform
+# This site is not indexed by search engines

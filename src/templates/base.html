@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PAGE_TITLE}} | FactBench - Expert Analysis & Testing</title>
+    <meta name="description" content="{{PAGE_DESCRIPTION}}">
+    
+    <!-- SEO: No Index, No Follow -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Open Graph for Reddit sharing -->
+    <meta property="og:title" content="{{PAGE_TITLE}}">
+    <meta property="og:description" content="{{PAGE_DESCRIPTION}}">
+    <meta property="og:image" content="{{PAGE_IMAGE}}">
+    <meta property="og:url" content="{{PAGE_URL}}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FactBench">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{PAGE_TITLE}}">
+    <meta name="twitter:description" content="{{PAGE_DESCRIPTION}}">
+    <meta name="twitter:image" content="{{PAGE_IMAGE}}">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/VerdIQ/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/VerdIQ/favicon-32x32.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="/VerdIQ/favicon-16x16.svg">
+    <link rel="apple-touch-icon" href="/VerdIQ/apple-touch-icon.svg">
+    <link rel="manifest" href="/VerdIQ/manifest.json">
+    <meta name="theme-color" content="#0ea5e9">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/VerdIQ/assets/css/style.css">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXPNJ0FEG7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CXPNJ0FEG7');
+    </script>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-base-100/90 backdrop-blur-lg border-b border-base-300">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/VerdIQ/" class="flex items-center space-x-3">
+                    <img src="/VerdIQ/assets/images/logo.svg" alt="FactBench" class="h-10 w-10">
+                    <span class="text-2xl font-display font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        FactBench
+                    </span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-400">Expert Analysis Platform</span>
+                    <div class="h-6 w-px bg-base-300"></div>
+                    <span class="badge badge-primary">VerdIQ™</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="flex-grow">
+        {{PAGE_CONTENT}}
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-base-200 border-t border-base-300 mt-16">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <img src="/VerdIQ/assets/images/logo.svg" alt="FactBench" class="h-8 w-8 opacity-50">
+                    <span class="text-gray-400 text-sm">© 2025 FactBench. Expert testing & analysis.</span>
+                </div>
+                <div class="flex items-center space-x-6 text-sm text-gray-400">
+                    <span>Rigorous Testing</span>
+                    <span>•</span>
+                    <span>Data-Driven Analysis</span>
+                    <span>•</span>
+                    <span>Expert Reviews</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Custom Scripts -->
+    {{PAGE_SCRIPTS}}
+</body>
+</html>

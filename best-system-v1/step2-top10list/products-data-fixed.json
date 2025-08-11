@@ -1,0 +1,279 @@
+{
+  "products": [
+    {
+      "position": 1,
+      "award": "Best OF THE BEST",
+      "name": "BeatBot AquaSense 2 Pro",
+      "tagline": "Master Every Pool Zone! Surface Skimming, Wall Scaling & Water Clarifying from this 5-in-1 Intelligent Powerhouse.",
+      "userRatings": "1,000+",
+      "starRating": 5,
+      "whatWeLike": [
+        "True 5-in-1 cleaning tackles every pool zone (even surface!).",
+        "Exceptional wall climbing & waterline scrubbing power.",
+        "Visibly clarifies water while reducing chemical needs.",
+        "Intelligent navigation ensures efficient, full coverage.",
+        "Smart features simplify retrieval & operation."
+      ],
+      "keyFeatures": [
+        "CleverNav™ Advanced Navigation (22 Sensors).",
+        "13,400mAh Battery (11hr Surface / 5hr Floor/Wall).",
+        "ClearWater™ Clarification System.",
+        "Smart Surface Parking & SmartDrain™ Tech.",
+        "Wi-Fi App Control & Wireless Charging."
+      ],
+      "amazonLink": "https://amzn.to/430399P",
+      "officialWebsiteLink": "https://beatbot.pxf.io/c/4198198/2671299/24972?subId1=Z-R&subId2=Best-Robotic-Pool-Cleaner-2025&partnerpropertyid=4254443",
+      "imageUrl": "https://www.zoopy.com/wp-content/uploads/2025/05/BeatBot_AquaSense_2_PRO.jpg"
+    },
+    {
+      "position": 2,
+      "award": "Best Overall",
+      "name": "Dolphin Nautilus CC Plus Wi-Fi",
+      "tagline": "The Proven All-Rounder, Making Reliable Cleaning & Smart Scheduling Easy.",
+      "userRatings": "17,000+",
+      "starRating": 4.5,
+      "whatWeLike": [
+        "Delivers consistently thorough floor and wall cleaning.",
+        "CleverClean™ smart navigation ensures efficient pool coverage.",
+        "Wi-Fi app allows easy weekly scheduling (\"set & forget\").",
+        "Top-load filter basket makes cleanup incredibly simple.",
+        "Energy-efficient design keeps running costs very low."
+      ],
+      "keyFeatures": [
+        "Dual Scrubbing Brushes for Floor & Wall Cleaning",
+        "CleverClean™ Smart Navigation System",
+        "Wi-Fi Enabled with MyDolphin™ Plus App (Weekly Scheduler)",
+        "Top-Load Fine Filter Cartridge System",
+        "60 ft. Anti-Tangle Swivel Cable (For Pools up to 50 ft)"
+      ],
+      "amazonLink": "https://amzn.to/44Awf0K",
+      "officialWebsiteLink": null,
+      "imageUrl": "https://www.zoopy.com/wp-content/uploads/2025/04/dolphin-nautilus-cc-plus.jpg"
+    },
+    {
+      "position": 3,
+      "award": "Best Cordless",
+      "name": "AIPER Scuba S1 Cordless",
+      "tagline": "Cut the Cord, Not the Clean! True Pool Freedom Has Arrived.",
+      "userRatings": "1,500+",
+      "starRating": 4.5,
+      "whatWeLike": [
+        "Complete freedom from cords & tangling hassles.",
+        "150-minute runtime covers most pools thoroughly.",
+        "Smart path planning maximizes battery efficiency.",
+        "4 powerful motors deliver surprising cleaning power.",
+        "Lightweight design makes handling remarkably easy."
+      ],
+      "keyFeatures": [
+        "100% Cordless Design with 5200mAh Battery",
+        "150-Minute Runtime & Auto-Parking",
+        "4-Motor System with Dual-Drive & Dual-Suction",
+        "Smart Path Planning Algorithm",
+        "LED Status Indicators & Self-Parking"
+      ],
+      "amazonLink": "https://amzn.to/43gzisz",
+      "officialWebsiteLink": null,
+      "imageUrl": "https://www.zoopy.com/wp-content/uploads/2024/07/2024AIPERScubaS1Cordless.jpg"
+    },
+    {
+      "position": 4,
+      "award": "Budget Pick",
+      "name": "Dolphin E10 (2025 Model)",
+      "tagline": "Premium Cleaning Power at an Entry-Level Price – Perfect for Smaller Pools!",
+      "userRatings": "2,500+",
+      "starRating": 4.5,
+      "whatWeLike": [
+        "Exceptional value with premium cleaning capabilities.",
+        "Simple one-button operation perfect for beginners.",
+        "Active scrubbing brush tackles stubborn debris.",
+        "Compact design ideal for above-ground and smaller pools.",
+        "Low maintenance with easy-clean filter basket."
+      ],
+      "keyFeatures": [
+        "Active Scrubbing Brush Technology",
+        "Smart Navigation for Efficient Coverage",
+        "Top-Load Filter Basket for Easy Cleaning",
+        "40ft Cable Length (Pools up to 30ft)",
+        "Energy-Efficient Design (180W)"
+      ],
+      "amazonLink": "https://amzn.to/42ZmMij",
+      "officialWebsiteLink": null,
+      "imageUrl": "/VerdIQ/assets/images/products/dolphin-e10.jpg"
+    },
+    {
+      "position": 5,
+      "award": "Smart Choice",
+      "name": "Polaris PCX 868 iQ Smart Robotic",
+      "tagline": "Intelligence Meets Power – App-Controlled Precision for Crystal Clear Results!",
+      "userRatings": "1,200+",
+      "starRating": 4.5,
+      "whatWeLike": [
+        "iAquaLink app provides complete remote control.",
+        "4WD technology conquers any pool surface.",
+        "Vortex vacuum technology captures ultra-fine debris.",
+        "7-day programmable timer for set-and-forget convenience.",
+        "Easy-lift system makes removal effortless."
+      ],
+      "keyFeatures": [
+        "iAquaLink® App Control with Wi-Fi",
+        "4WD Technology for Superior Traction",
+        "Vortex Vacuum Technology",
+        "Easy Lift System with Auto-Drain",
+        "70ft Tangle-Reducing Cable"
+      ],
+      "amazonLink": "https://amzn.to/44LZkXf",
+      "officialWebsiteLink": null,
+      "imageUrl": "/VerdIQ/assets/images/products/polaris-pcx-868-iq.jpg"
+    },
+    {
+      "position": 6,
+      "award": "Premium Pick",
+      "name": "BeatBot AquaSense 2 Ultra",
+      "tagline": "The Ultimate Pool Cleaning Experience – Where Innovation Meets Perfection!",
+      "userRatings": "800+",
+      "starRating": 5,
+      "whatWeLike": [
+        "Revolutionary surface skimming technology.",
+        "AI-powered navigation learns your pool layout.",
+        "Industry-leading battery life (15 hours).",
+        "Self-cleaning filter system reduces maintenance.",
+        "Premium build quality with 3-year warranty."
+      ],
+      "keyFeatures": [
+        "AI Path Planning with Pool Mapping",
+        "15,000mAh Battery (15hr Runtime)",
+        "Self-Cleaning Filter Technology",
+        "Ultrasonic Sensors for Precision",
+        "App Control with Real-Time Monitoring"
+      ],
+      "amazonLink": "https://amzn.to/45WYVli",
+      "officialWebsiteLink": null,
+      "imageUrl": "/VerdIQ/assets/images/products/beatbot-aquasense-2-ultra.jpg"
+    },
+    {
+      "position": 7,
+      "award": "Tech Innovation",
+      "name": "WYBOT C2 Vision AI Camera Cordless",
+      "tagline": "See What Your Cleaner Sees – AI Vision Technology for Unmatched Precision!",
+      "userRatings": "900+",
+      "starRating": 4.5,
+      "whatWeLike": [
+        "Built-in camera shows real-time pool conditions.",
+        "AI vision technology identifies problem areas.",
+        "Cordless design with impressive 180-minute runtime.",
+        "App provides live video feed during cleaning.",
+        "Obstacle avoidance prevents getting stuck."
+      ],
+      "keyFeatures": [
+        "HD Camera with Live Streaming",
+        "AI Vision Recognition System",
+        "180-Minute Battery Runtime",
+        "Obstacle Detection & Avoidance",
+        "Smart App with Video Playback"
+      ],
+      "amazonLink": "#",
+      "officialWebsiteLink": null,
+      "imageUrl": "/VerdIQ/assets/images/products/wybot-c2-vision.jpg"
+    },
+    {
+      "position": 8,
+      "award": "Performance Leader",
+      "name": "AIPER Scuba X1 Cordless",
+      "tagline": "Next-Gen Cordless Power – Unleash Superior Cleaning Without Limits!",
+      "userRatings": "1,100+",
+      "starRating": 4.5,
+      "whatWeLike": [
+        "Advanced quad-motor system for powerful suction.",
+        "WavePath Navigation 2.0 ensures complete coverage.",
+        "Wall climbing capability reaches waterline.",
+        "Eco-friendly with solar charging option.",
+        "Ultra-quiet operation won't disturb relaxation."
+      ],
+      "keyFeatures": [
+        "Quad-Motor Design (4x Power)",
+        "WavePath Navigation 2.0",
+        "Wall Climbing Technology",
+        "Solar Charging Compatible",
+        "6000mAh Battery (3hr Runtime)"
+      ],
+      "amazonLink": "https://amzn.to/4mhNZnN",
+      "officialWebsiteLink": null,
+      "imageUrl": "/VerdIQ/assets/images/products/aiper-scuba-x1.jpg"
+    },
+    {
+      "position": 9,
+      "award": "Professional Grade",
+      "name": "Dolphin Premier",
+      "tagline": "Commercial-Grade Performance for Residential Pools – The Professional's Choice!",
+      "userRatings": "3,500+",
+      "starRating": 5,
+      "whatWeLike": [
+        "Multi-media filtration captures all debris types.",
+        "Weekly timer with multiple cycle options.",
+        "Dual scrubbing brushes deep clean surfaces.",
+        "Anti-tangle swivel prevents cable issues.",
+        "Proven reliability with commercial-grade components."
+      ],
+      "keyFeatures": [
+        "Multi-Media Filtration System",
+        "Weekly Timer with 3 Settings",
+        "Dual DC Motors with SmartNav",
+        "Oversized Leaf Bag Option",
+        "3-Year Manufacturer Warranty"
+      ],
+      "amazonLink": "https://amzn.to/4doxYIQ",
+      "officialWebsiteLink": null,
+      "imageUrl": "/VerdIQ/assets/images/products/dolphin-premier.jpg"
+    },
+    {
+      "position": 10,
+      "award": "Power House",
+      "name": "Polaris 9550 Sport Robotic",
+      "tagline": "Unleash the Beast – Maximum Power Meets Intelligent Design!",
+      "userRatings": "2,800+",
+      "starRating": 4.5,
+      "whatWeLike": [
+        "Motion-sensing remote for easy spot cleaning.",
+        "Rear water cleaning stream for enhanced coverage.",
+        "4WD provides unmatched climbing ability.",
+        "Extra-large debris canister reduces emptying.",
+        "Dirty canister indicator alerts when full."
+      ],
+      "keyFeatures": [
+        "Motion-Sensing Remote Control",
+        "Rear Water Cleaning Stream",
+        "4WD with ActivMotion Sensor",
+        "Extra-Large Debris Canister",
+        "Easy Lift System"
+      ],
+      "amazonLink": "https://amzn.to/43k9coy",
+      "officialWebsiteLink": null,
+      "imageUrl": "/VerdIQ/assets/images/products/polaris-9550-sport.jpg"
+    },
+    {
+      "position": 11,
+      "award": "Eco Champion",
+      "name": "Betta SE Solar Powered Pool Skimmer",
+      "tagline": "Harness the Sun – Eco-Friendly Surface Cleaning That Never Stops!",
+      "userRatings": "2,200+",
+      "starRating": 4,
+      "whatWeLike": [
+        "100% solar powered with zero operating costs.",
+        "Continuous surface cleaning during daylight.",
+        "UV-resistant design built to last.",
+        "No installation or cords required.",
+        "Environmentally friendly solution."
+      ],
+      "keyFeatures": [
+        "100% Solar Powered Operation",
+        "Automatic Debris Collection",
+        "UV-Resistant Construction",
+        "Re-Engineered Propulsion System",
+        "Works in All Pool Types"
+      ],
+      "amazonLink": "#",
+      "officialWebsiteLink": null,
+      "imageUrl": "/VerdIQ/assets/images/products/betta-se-solar.jpg"
+    }
+  ]
+}

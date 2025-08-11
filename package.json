@@ -1,0 +1,24 @@
+{
+  "name": "factbench",
+  "version": "1.0.0",
+  "description": "Expert product analysis and testing platform",
+  "scripts": {
+    "build-css": "tailwindcss -i ./src/assets/css/input.css -o ./dist/assets/css/style.css --minify",
+    "watch-css": "tailwindcss -i ./src/assets/css/input.css -o ./dist/assets/css/style.css --watch",
+    "build": "npm run build-css && node scripts/build.js",
+    "dev": "npm run watch-css",
+    "deploy": "bash scripts/quick-deploy.sh",
+    "preview": "npx serve dist -p 3000",
+    "extract": "python3 scripts/extract-zoopy-content.py",
+    "generate-page": "node scripts/generate-page.js",
+    "new-page": "echo 'Usage: npm run extract <zoopy-url> <name> && npm run generate-page <name>'"
+  },
+  "keywords": ["product-reviews", "analysis", "testing"],
+  "author": "FactBench Team",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
+  }
+}
