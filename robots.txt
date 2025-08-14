@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /assets/
+Allow: /
+
+Sitemap: https://factbench.github.io/VerdIQ/sitemap.xml
