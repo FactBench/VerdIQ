@@ -2726,146 +2726,28 @@ function toggleFeatures(productId, button) {
 </script>
 
 
-        <!-- Interactive Comparison Table Section -->
-        <!-- Interactive Bidet Attachments Comparison Component -->
-<section id="comparison-table" class="py-16 bg-[#0f1824]" x-data="bidetComparison()">
+        <!-- Comparison Table Section -->
+        <!-- Bidet Attachments Comparison Table Component -->
+<section id="comparison-table" class="py-16 bg-[#0f1824]">
     <div class="container-custom">
         <!-- Section Header -->
         <div class="text-center mb-10">
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                Interactive Comparison Tool
+                Complete Comparison Chart
             </h2>
             <p class="text-base md:text-lg text-gray-400 max-w-3xl mx-auto">
-                Filter and compare bidet attachments by features, price, and specifications to find your perfect match
+                Compare all top-rated bidet attachments side-by-side to find your perfect match
             </p>
-        </div>
 
-        <!-- Interactive Filters Section -->
-        <div class="mb-8 bg-[#1a2332] rounded-xl border border-[#2a3442] p-6">
-            <!-- Filter Header -->
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-lg font-semibold text-white flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
-                    </svg>
-                    Filter Products
-                </h3>
-                <button
-                    @click="resetFilters()"
-                    class="text-sm text-cyan-400 hover:text-cyan-300 transition-colors flex items-center"
-                    :class="{ 'opacity-50 pointer-events-none': !hasActiveFilters() }"
-                >
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                    </svg>
-                    Reset All
-                </button>
-            </div>
-
-            <!-- Filter Options Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Temperature Control Filter -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-3">Temperature Control</label>
-                    <div class="space-y-2">
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.temperature" value="cold" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Cold Water Only</span>
-                        </label>
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.temperature" value="dual" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Warm Water (Dual-Temp)</span>
-                        </label>
-                    </div>
+            <!-- Legends -->
+            <div class="mt-6 space-y-2">
+                <div class="text-sm text-gray-400">
+                    <span class="font-semibold text-white">Price Guide:</span>
+                    <span class="text-green-500 font-bold">&#36;</span> = Under &#36;40 |
+                    <span class="text-yellow-500 font-bold">&#36;&#36;</span> = &#36;40 - &#36;79 |
+                    <span class="text-orange-500 font-bold">&#36;&#36;&#36;</span> = &#36;80 - &#36;119 |
+                    <span class="text-red-500 font-bold">&#36;&#36;&#36;&#36;</span> = &#36;120+
                 </div>
-
-                <!-- Nozzle Type Filter -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-3">Nozzle Configuration</label>
-                    <div class="space-y-2">
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.nozzleType" value="single" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Single Nozzle</span>
-                        </label>
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.nozzleType" value="dual" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Dual Nozzle (Rear + Feminine)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Price Range Filter -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-3">Price Range</label>
-                    <div class="space-y-2">
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.price" value="$" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">&#36; (Under &#36;40)</span>
-                        </label>
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.price" value="$$" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">&#36;&#36; (&#36;40 - &#36;79)</span>
-                        </label>
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.price" value="$$$" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">&#36;&#36;&#36; (&#36;80 - &#36;119)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Rating Filter -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-3">Minimum Rating</label>
-                    <div class="space-y-2">
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.rating" value="4.0" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">4.0+ Stars</span>
-                        </label>
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.rating" value="4.5" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">4.5+ Stars</span>
-                        </label>
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" x-model="filters.rating" value="5.0" class="w-4 h-4 text-cyan-500 bg-[#0f1824] border-gray-600 rounded focus:ring-cyan-500 focus:ring-2">
-                            <span class="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">5.0 Stars (Perfect)</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Active Filters Display -->
-            <div x-show="hasActiveFilters()" x-transition class="mt-6 pt-6 border-t border-[#2a3442]">
-                <div class="flex items-center flex-wrap gap-2">
-                    <span class="text-sm text-gray-400">Active Filters:</span>
-                    <template x-for="filter in getActiveFiltersList()" :key="filter.id">
-                        <button
-                            @click="removeFilter(filter.type, filter.value)"
-                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/30 transition-colors"
-                        >
-                            <span x-text="filter.label"></span>
-                            <svg class="w-3 h-3 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </template>
-                </div>
-            </div>
-
-            <!-- Results Counter -->
-            <div class="mt-4 text-center">
-                <p class="text-sm text-gray-400">
-                    Showing <span class="font-semibold text-cyan-400" x-text="getVisibleProductCount()"></span> of <span class="font-semibold text-white">11</span> products
-                </p>
-            </div>
-        </div>
-
-        <!-- Legends -->
-        <div class="mb-6 space-y-2 text-center">
-            <div class="text-sm text-gray-400">
-                <span class="font-semibold text-white">Price Guide:</span>
-                <span class="text-green-500 font-bold">&#36;</span> = Under &#36;40 |
-                <span class="text-yellow-500 font-bold">&#36;&#36;</span> = &#36;40 - &#36;79 |
-                <span class="text-orange-500 font-bold">&#36;&#36;&#36;</span> = &#36;80 - &#36;119
             </div>
         </div>
 
@@ -2881,47 +2763,47 @@ function toggleFeatures(productId, button) {
                                 <span class="text-sm font-semibold text-gray-400 uppercase tracking-wider whitespace-nowrap">Feature</span>
                             </th>
                             
-      <th data-product-id="luxe-neo-120" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">LUXE Bidet NEO 120</div>
       </th>
     
-      <th data-product-id="tushy-spa-30" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">TUSHY Spa 3.0</div>
       </th>
     
-      <th data-product-id="clear-rear-bidet" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">CLEAR REAR Bidet Attachment</div>
       </th>
     
-      <th data-product-id="pocaland-ultra-slim" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">POCALAND Ultra-Slim Bidet Attachment</div>
       </th>
     
-      <th data-product-id="luxe-neo-320-plus" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">LUXE Bidet NEO 320 Plus</div>
       </th>
     
-      <th data-product-id="cyafinomy-bidet" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">Cyafinomy Bidet Attachment</div>
       </th>
     
-      <th data-product-id="omigo-element" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">Omigo Element Bidet Attachment</div>
       </th>
     
-      <th data-product-id="squatty-potty-refresh" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">Squatty Potty Refresh Bidet Attachment</div>
       </th>
     
-      <th data-product-id="tushy-classic-30" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">TUSHY Classic 3.0 Bidet Attachment</div>
       </th>
     
-      <th data-product-id="bigcow-ultra-slim" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">BIGCOW Ultra-Slim Bidet Attachment</div>
       </th>
     
-      <th data-product-id="seido-origin-10" class="px-4 py-4 text-center min-w-[160px]">
+      <th class="px-4 py-4 text-center min-w-[160px]">
         <div class="text-xs font-semibold text-white whitespace-nowrap">Seido Origin 1.0 Bidet Attachment</div>
       </th>
     
@@ -2930,73 +2812,73 @@ function toggleFeatures(productId, button) {
 
                     <!-- Table Body -->
                     <tbody class="divide-y divide-[#2a3442]">
-                        <!-- Product Images Row -->
+                        <!-- Product Images Row - odd row darker -->
                         <tr class="bg-[#1a2332] hover:bg-[#1e293b]/70 transition-colors">
                             <td class="sticky left-0 z-10 bg-[#1a2332] px-4 py-3 min-w-[180px]">
                                 <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Product</span>
                             </td>
                             
-      <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/LUXE_NEO_120_Summary.jpg"
              alt="LUXE Bidet NEO 120"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/TUSHY_SPA_30_Summary.jpg"
              alt="TUSHY Spa 3.0"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/CLEAR_REAR_Summary.jpg"
              alt="CLEAR REAR Bidet Attachment"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/POCALAND_Summary.jpg"
              alt="POCALAND Ultra-Slim Bidet Attachment"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/LUXE_NEO_320_PLUS_Summary.jpg"
              alt="LUXE Bidet NEO 320 Plus"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/CYAFINOMY_Summary.jpg"
              alt="Cyafinomy Bidet Attachment"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="omigo-element" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/OMIGO_ELEMENT_Summary.jpg"
              alt="Omigo Element Bidet Attachment"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/SQUATTY_POTTY_REFRESH_Summary.jpg"
              alt="Squatty Potty Refresh Bidet Attachment"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/TUSHY_CLASSIC_30_Summary.jpg"
              alt="TUSHY Classic 3.0 Bidet Attachment"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/BIGCOW_Summary.jpg"
              alt="BIGCOW Ultra-Slim Bidet Attachment"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
       </td>
     
-      <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
+      <td class="px-3 py-3 text-center">
         <img src="https://factbench.github.io/VerdIQ/assets/images/bidet-attachments/SEIDO_ORIGIN_10_Summary.jpg"
              alt="Seido Origin 1.0 Bidet Attachment"
              class="w-20 h-20 object-contain mx-auto rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 p-2">
@@ -3004,663 +2886,314 @@ function toggleFeatures(productId, button) {
     
                         </tr>
 
-                        <!-- Our Rating Row -->
+                        <!-- Our Rating Row - even row lighter -->
                         <tr class="bg-[#1e293b]/40 hover:bg-[#1e293b]/70 transition-colors">
                             <td class="sticky left-0 z-10 bg-[#1e293b]/40 px-4 py-3 min-w-[180px]">
                                 <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Our Rating</span>
                             </td>
                             
-      <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">4.6</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(4.6/5.0)</div>
       </td>
     
-      <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">4.5</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(4.5/5.0)</div>
       </td>
     
-      <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">4.5</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(4.5/5.0)</div>
       </td>
     
-      <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">5</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(5/5.0)</div>
       </td>
     
-      <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">4.6</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(4.6/5.0)</div>
       </td>
     
-      <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">4.3</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(4.3/5.0)</div>
       </td>
     
-      <td data-product-id="omigo-element" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">4.5</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(4.5/5.0)</div>
       </td>
     
-      <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">4.4</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(4.4/5.0)</div>
       </td>
     
-      <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">4.5</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(4.5/5.0)</div>
       </td>
     
-      <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">5</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(5/5.0)</div>
       </td>
     
-      <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
-        <div class="flex items-center justify-center">
-          <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-          <span class="ml-1 text-sm font-semibold text-yellow-400">5</span>
-        </div>
+      <td class="px-3 py-3 text-center">
+        <div class="text-sm font-semibold text-yellow-400">(5/5.0)</div>
       </td>
     
                         </tr>
 
-                        <!-- Award Category Row -->
+                        <!-- Award Category Row - odd row darker -->
                         <tr class="bg-[#1a2332] hover:bg-[#1e293b]/70 transition-colors">
                             <td class="sticky left-0 z-10 bg-[#1a2332] px-4 py-3 min-w-[180px]">
                                 <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Award Category</span>
                             </td>
                             
-        <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
-          <div class="text-xs text-yellow-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST OVERALL VALUE
           </div>
         </td>
       
-        <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
-          <div class="text-xs text-purple-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST PREMIUM INNOVATION
           </div>
         </td>
       
-        <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
-          <div class="text-xs text-cyan-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             EDITOR'S CHOICE
           </div>
         </td>
       
-        <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
-          <div class="text-xs text-green-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST BUDGET CHAMPION
           </div>
         </td>
       
-        <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
-          <div class="text-xs text-orange-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST DUAL-TEMP POWERHOUSE
           </div>
         </td>
       
-        <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
-          <div class="text-xs text-cyan-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST FOR SIMPLICITY
           </div>
         </td>
       
-        <td data-product-id="omigo-element" class="px-3 py-3 text-center">
-          <div class="text-xs text-cyan-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST WARM WATER VALUE
           </div>
         </td>
       
-        <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
-          <div class="text-xs text-cyan-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST WELLNESS BRAND
           </div>
         </td>
       
-        <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
-          <div class="text-xs text-cyan-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST PREMIUM DESIGN
           </div>
         </td>
       
-        <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
-          <div class="text-xs text-cyan-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST ULTRA-BUDGET
           </div>
         </td>
       
-        <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
-          <div class="text-xs text-cyan-400 font-semibold whitespace-nowrap">
+        <td class="px-3 py-3 text-center">
+          <div class="text-sm text-yellow-400 whitespace-nowrap">
             BEST JAPANESE PRECISION
           </div>
         </td>
       
                         </tr>
 
-                        <!-- Temperature Control Row -->
+                        <!-- Temperature Control Row - even row lighter -->
                         <tr class="bg-[#1e293b]/40 hover:bg-[#1e293b]/70 transition-colors">
                             <td class="sticky left-0 z-10 bg-[#1e293b]/40 px-4 py-3 min-w-[180px]">
                                 <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Temperature Control</span>
                             </td>
-                            
-      <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Cold Only</span>
-      </td>
-    
-      <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Hot + Cold)</span>
-      </td>
-    
-      <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Hot + Cold)</span>
-      </td>
-    
-      <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Cold Only</span>
-      </td>
-    
-      <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Hot + Cold)</span>
-      </td>
-    
-      <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Cold Only</span>
-      </td>
-    
-      <td data-product-id="omigo-element" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Hot + Cold)</span>
-      </td>
-    
-      <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Cold Only</span>
-      </td>
-    
-      <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Cold Only</span>
-      </td>
-    
-      <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Cold Only</span>
-      </td>
-    
-      <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Cold Only</span>
-      </td>
-    
+                            <td class="px-3 py-3 text-center text-sm text-cyan-400">Cold Only</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Dual (Hot + Cold)</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Dual (Hot + Cold)</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Cold Only</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Dual (Hot + Cold)</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Cold Only</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Dual (Hot + Cold)</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Cold Only</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Cold Only</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Cold Only</td><td class="px-3 py-3 text-center text-sm text-cyan-400">Cold Only</td>
                         </tr>
 
-                        <!-- Nozzle Type Row -->
+                        <!-- Nozzle Type Row - odd row darker -->
                         <tr class="bg-[#1a2332] hover:bg-[#1e293b]/70 transition-colors">
                             <td class="sticky left-0 z-10 bg-[#1a2332] px-4 py-3 min-w-[180px]">
                                 <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Nozzle Type</span>
                             </td>
-                            
-      <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Rear + Feminine)</span>
-      </td>
-    
-      <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Single SmartSpray</span>
-      </td>
-    
-      <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Single Rear</span>
-      </td>
-    
-      <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Rear + Feminine)</span>
-      </td>
-    
-      <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Rear + Feminine)</span>
-      </td>
-    
-      <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Rear + Feminine)</span>
-      </td>
-    
-      <td data-product-id="omigo-element" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Single Rear</span>
-      </td>
-    
-      <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Rear + Feminine)</span>
-      </td>
-    
-      <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Single SmartSpray</span>
-      </td>
-    
-      <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Rear + Feminine)</span>
-      </td>
-    
-      <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Dual (Rear + Feminine)</span>
-      </td>
-    
+                            <td class="px-3 py-3 text-center text-sm text-green-400">Dual (Rear + Feminine)</td><td class="px-3 py-3 text-center text-sm text-gray-400">Single SmartSpray</td><td class="px-3 py-3 text-center text-sm text-gray-400">Single Rear</td><td class="px-3 py-3 text-center text-sm text-green-400">Dual (Rear + Feminine)</td><td class="px-3 py-3 text-center text-sm text-green-400">Dual (Rear + Feminine)</td><td class="px-3 py-3 text-center text-sm text-green-400">Dual (Rear + Feminine)</td><td class="px-3 py-3 text-center text-sm text-gray-400">Single Rear</td><td class="px-3 py-3 text-center text-sm text-green-400">Dual (Rear + Feminine)</td><td class="px-3 py-3 text-center text-sm text-gray-400">Single SmartSpray</td><td class="px-3 py-3 text-center text-sm text-green-400">Dual (Rear + Feminine)</td><td class="px-3 py-3 text-center text-sm text-green-400">Dual (Rear + Feminine)</td>
                         </tr>
 
-                        <!-- Installation Type Row -->
+                        <!-- Installation Row - even row lighter -->
                         <tr class="bg-[#1e293b]/40 hover:bg-[#1e293b]/70 transition-colors">
                             <td class="sticky left-0 z-10 bg-[#1e293b]/40 px-4 py-3 min-w-[180px]">
                                 <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Installation</span>
                             </td>
-                            
-      <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 10 mins</span>
-      </td>
-    
-      <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 10 mins</span>
-      </td>
-    
-      <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 15 mins</span>
-      </td>
-    
-      <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 10 mins</span>
-      </td>
-    
-      <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 15 mins</span>
-      </td>
-    
-      <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 10 mins</span>
-      </td>
-    
-      <td data-product-id="omigo-element" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 15 mins</span>
-      </td>
-    
-      <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 10 mins</span>
-      </td>
-    
-      <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 10 mins</span>
-      </td>
-    
-      <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">Tool-Free - 5 mins</span>
-      </td>
-    
-      <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">DIY - 15 mins</span>
-      </td>
-    
+                            <td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 10 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 10 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 15 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 10 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 15 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 10 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 15 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 10 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 10 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">Tool-Free - 5 mins</td><td class="px-3 py-3 text-center text-sm text-gray-300">DIY - 15 mins</td>
                         </tr>
 
-                        <!-- Key Features Row -->
+                        <!-- Warranty Row - odd row darker -->
                         <tr class="bg-[#1a2332] hover:bg-[#1e293b]/70 transition-colors">
                             <td class="sticky left-0 z-10 bg-[#1a2332] px-4 py-3 min-w-[180px]">
-                                <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Key Features</span>
-                            </td>
-                            
-      <td data-product-id="luxe-neo-120" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Dual Nozzle System (Rear + Feminine Wash)</li><li>• Adjustable Water Pressure Control</li><li>• Self-Cleaning Nozzle Guard</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="tushy-spa-30" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Adjustable Warm Water (Connects to Hot Water Line)</li><li>• Bamboo + Chrome Premium Materials</li><li>• SmartSpray Adjustable Nozzle Angle</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="clear-rear-bidet" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Dual Temperature Control (Hot/Cold)</li><li>• Brass Internal Components + Stainless Steel Nozzles</li><li>• Ultra-Slim 0.16" Profile Design</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="pocaland-ultra-slim" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Ultra-Slim 0.2" Low-Profile Design</li><li>• Dual Self-Cleaning Nozzles</li><li>• Single-Dial Pressure Control</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="luxe-neo-320-plus" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Dual Temperature (Hot + Cold Water)</li><li>• Patented Flip-Up Nozzle Guard</li><li>• 360° Self-Cleaning Nozzle System</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="cyafinomy-bidet" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Push-Button Single-Touch Control</li><li>• Dual Self-Cleaning Nozzles</li><li>• Adjustable Water Pressure</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="omigo-element" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Dual Temperature (Hot + Cold)</li><li>• Connects to Sink Hot Water Line</li><li>• Self-Cleaning Retractable Nozzle</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="squatty-potty-refresh" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Dual Precision Nozzles (Rear + Feminine)</li><li>• Adjustable Water Pressure</li><li>• Self-Cleaning Nozzle Technology</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="tushy-classic-30" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• SmartSpray Adjustable Angle Nozzle</li><li>• Premium Bamboo + Chrome Design</li><li>• Self-Cleaning Ceramic Valve</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="bigcow-ultra-slim" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Ultra-Slim 0.2" Profile</li><li>• Modern Tactile Control Design</li><li>• Dual Self-Cleaning Nozzles</li>
-        </ul>
-      </td>
-    
-      <td data-product-id="seido-origin-10" class="px-3 py-3">
-        <ul class="text-xs text-gray-300 space-y-1 text-left">
-          <li>• Ultra-Slim Japanese Design</li><li>• Premium Stainless Steel Construction</li><li>• Dual Self-Cleaning Nozzles</li>
-        </ul>
-      </td>
-    
-                        </tr>
-
-                        <!-- Warranty Row -->
-                        <tr class="bg-[#1e293b]/40 hover:bg-[#1e293b]/70 transition-colors">
-                            <td class="sticky left-0 z-10 bg-[#1e293b]/40 px-4 py-3 min-w-[180px]">
                                 <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Warranty</span>
                             </td>
-                            
-      <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">12 Months</span>
-      </td>
-    
-      <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">12 Months</span>
-      </td>
-    
-      <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">24 Months</span>
-      </td>
-    
-      <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">12 Months</span>
-      </td>
-    
-      <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">12 Months</span>
-      </td>
-    
-      <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">12 Months</span>
-      </td>
-    
-      <td data-product-id="omigo-element" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">12 Months</span>
-      </td>
-    
-      <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">12 Months</span>
-      </td>
-    
-      <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">12 Months</span>
-      </td>
-    
-      <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">12 Months</span>
-      </td>
-    
-      <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
-        <span class="text-sm text-gray-300">24 Months</span>
-      </td>
-    
+                            <td class="px-3 py-3 text-center text-sm text-gray-300">12 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">12 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">24 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">12 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">12 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">12 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">12 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">12 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">12 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">12 Months</td><td class="px-3 py-3 text-center text-sm text-gray-300">24 Months</td>
                         </tr>
 
-                        <!-- Price Guide Row -->
-                        <tr class="bg-[#1a2332] hover:bg-[#1e293b]/70 transition-colors">
-                            <td class="sticky left-0 z-10 bg-[#1a2332] px-4 py-3 min-w-[180px]">
-                                <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Price Guide</span>
-                            </td>
-                            
-        <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-green-500">&#36;</span>
-        </td>
-      
-        <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-orange-500">&#36;&#36;&#36;</span>
-        </td>
-      
-        <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-yellow-500">&#36;&#36;</span>
-        </td>
-      
-        <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-green-500">&#36;</span>
-        </td>
-      
-        <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-yellow-500">&#36;&#36;</span>
-        </td>
-      
-        <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-green-500">&#36;</span>
-        </td>
-      
-        <td data-product-id="omigo-element" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-green-500">&#36;</span>
-        </td>
-      
-        <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-yellow-500">&#36;&#36;</span>
-        </td>
-      
-        <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-yellow-500">&#36;&#36;</span>
-        </td>
-      
-        <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-green-500">&#36;</span>
-        </td>
-      
-        <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
-          <span class="text-lg font-bold text-orange-500">&#36;&#36;&#36;</span>
-        </td>
-      
-                        </tr>
-
-                        <!-- View Full Review Row -->
+                        <!-- Price Guide Row - even row lighter -->
                         <tr class="bg-[#1e293b]/40 hover:bg-[#1e293b]/70 transition-colors">
                             <td class="sticky left-0 z-10 bg-[#1e293b]/40 px-4 py-3 min-w-[180px]">
+                                <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Price Guide</span>
+                            </td>
+                            <td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;&#36;&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;</td><td class="px-3 py-3 text-center text-lg font-bold text-gray-400">&#36;&#36;&#36;</td>
+                        </tr>
+
+                        <!-- View Full Review Row - odd row darker -->
+                        <tr class="bg-[#1a2332] hover:bg-[#1e293b]/70 transition-colors">
+                            <td class="sticky left-0 z-10 bg-[#1a2332] px-4 py-3 min-w-[180px]">
                                 <span class="text-sm font-medium text-gray-300 whitespace-nowrap">View Full Review</span>
                             </td>
                             
-      <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/luxe-neo-120/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/luxe-neo-120/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/tushy-spa-30/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/tushy-spa-30/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/clear-rear-bidet/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/clear-rear-bidet/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/pocaland-ultra-slim/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/pocaland-ultra-slim/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/luxe-neo-320-plus/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/luxe-neo-320-plus/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/cyafinomy-bidet/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/cyafinomy-bidet/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="omigo-element" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/omigo-element/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/omigo-element/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/squatty-potty-refresh/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/squatty-potty-refresh/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/tushy-classic-30/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/tushy-classic-30/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/bigcow-ultra-slim/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/bigcow-ultra-slim/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
-      <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
-        <a href="/VerdIQ/reviews/seido-origin-10/" class="inline-block px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white text-xs font-semibold rounded-lg transition-colors">
-          View Review
+      <td class="px-3 py-3 text-center">
+        <a href="/VerdIQ/reviews/seido-origin-10/" class="text-sm text-yellow-400 hover:text-yellow-300 transition-colors whitespace-nowrap">
+          Read Review
         </a>
       </td>
     
                         </tr>
 
-                        <!-- Check Price Row -->
-                        <tr class="bg-[#1a2332] hover:bg-[#1e293b]/70 transition-colors">
-                            <td class="sticky left-0 z-10 bg-[#1a2332] px-4 py-3 min-w-[180px]">
+                        <!-- Check Price Row - even row lighter -->
+                        <tr class="bg-[#1e293b]/40 hover:bg-[#1e293b]/70 transition-colors">
+                            <td class="sticky left-0 z-10 bg-[#1e293b]/40 px-4 py-3 min-w-[180px]">
                                 <span class="text-sm font-medium text-gray-300 whitespace-nowrap">Check Price</span>
                             </td>
                             
-      <td data-product-id="luxe-neo-120" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/dp/B00JG2DETM?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/dp/B00JG2DETM?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="tushy-spa-30" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/dp/B08VS11Z1N?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/dp/B08VS11Z1N?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="clear-rear-bidet" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/dp/B09MGFS4MZ?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/dp/B09MGFS4MZ?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="pocaland-ultra-slim" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/dp/B0B1H3YKSN?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/dp/B0B1H3YKSN?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="luxe-neo-320-plus" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/dp/B07YN9JXNW?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/dp/B07YN9JXNW?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="cyafinomy-bidet" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/dp/B0FDB763HM?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/dp/B0FDB763HM?tag=zoopy-ba-20" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="omigo-element" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/omigo-element" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/omigo-element" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="squatty-potty-refresh" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/squatty-potty-refresh" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/squatty-potty-refresh" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="tushy-classic-30" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/tushy-classic-30" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/tushy-classic-30" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="bigcow-ultra-slim" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/bigcow-ultra-slim" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/bigcow-ultra-slim" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
     
-      <td data-product-id="seido-origin-10" class="px-3 py-3 text-center">
-        <a href="https://www.amazon.com/seido-origin-10" target="_blank" rel="noopener noreferrer sponsored" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg transition-colors">
+      <td class="px-3 py-3 text-center">
+        <a href="https://www.amazon.com/seido-origin-10" target="_blank" rel="noopener noreferrer sponsored" class="text-sm text-green-400 hover:text-green-300 transition-colors whitespace-nowrap">
           Check Price
         </a>
       </td>
@@ -3678,7 +3211,7 @@ function toggleFeatures(productId, button) {
             </div>
         </div>
 
-        <!-- Swipe Notice -->
+        <!-- Swipe Notice for all screen sizes -->
         <div class="mt-4 text-center">
             <p class="text-sm text-gray-500 flex items-center justify-center">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -3689,136 +3222,6 @@ function toggleFeatures(productId, button) {
         </div>
     </div>
 </section>
-
-<!-- Alpine.js Component Logic -->
-<script>
-function bidetComparison() {
-    return {
-        filters: {
-            temperature: [],
-            nozzleType: [],
-            price: [],
-            rating: []
-        },
-
-        // Product data with filter attributes
-        products: [
-            { id: 1, name: 'LUXE NEO 120', temperature: 'cold', nozzleType: 'dual', price: '$', rating: 4.6 },
-            { id: 2, name: 'TUSHY Spa 3.0', temperature: 'dual', nozzleType: 'single', price: '$$$', rating: 4.5 },
-            { id: 3, name: 'CLEAR REAR', temperature: 'dual', nozzleType: 'single', price: '$$', rating: 4.5 },
-            { id: 4, name: 'POCALAND', temperature: 'cold', nozzleType: 'dual', price: '$', rating: 5.0 },
-            { id: 5, name: 'LUXE NEO 320 Plus', temperature: 'dual', nozzleType: 'dual', price: '$$', rating: 4.6 },
-            { id: 6, name: 'Cyafinomy', temperature: 'cold', nozzleType: 'dual', price: '$', rating: 4.3 },
-            { id: 7, name: 'Omigo Element', temperature: 'dual', nozzleType: 'single', price: '$', rating: 4.5 },
-            { id: 8, name: 'Squatty Potty Refresh', temperature: 'cold', nozzleType: 'dual', price: '$$', rating: 4.4 },
-            { id: 9, name: 'TUSHY Classic 3.0', temperature: 'cold', nozzleType: 'single', price: '$$', rating: 4.5 },
-            { id: 10, name: 'BIGCOW', temperature: 'cold', nozzleType: 'dual', price: '$', rating: 5.0 },
-            { id: 11, name: 'Seido Origin 1.0', temperature: 'cold', nozzleType: 'dual', price: '$$$', rating: 5.0 }
-        ],
-
-        isProductVisible(product) {
-            // Check temperature filter
-            if (this.filters.temperature.length > 0) {
-                if (!this.filters.temperature.includes(product.temperature)) {
-                    return false;
-                }
-            }
-
-            // Check nozzle type filter
-            if (this.filters.nozzleType.length > 0) {
-                if (!this.filters.nozzleType.includes(product.nozzleType)) {
-                    return false;
-                }
-            }
-
-            // Check price filter
-            if (this.filters.price.length > 0) {
-                if (!this.filters.price.includes(product.price)) {
-                    return false;
-                }
-            }
-
-            // Check rating filter
-            if (this.filters.rating.length > 0) {
-                const matchesRating = this.filters.rating.some(minRating => {
-                    return product.rating >= parseFloat(minRating);
-                });
-                if (!matchesRating) {
-                    return false;
-                }
-            }
-
-            return true;
-        },
-
-        hasActiveFilters() {
-            return this.filters.temperature.length > 0 ||
-                   this.filters.nozzleType.length > 0 ||
-                   this.filters.price.length > 0 ||
-                   this.filters.rating.length > 0;
-        },
-
-        resetFilters() {
-            this.filters = {
-                temperature: [],
-                nozzleType: [],
-                price: [],
-                rating: []
-            };
-        },
-
-        removeFilter(type, value) {
-            const index = this.filters[type].indexOf(value);
-            if (index > -1) {
-                this.filters[type].splice(index, 1);
-            }
-        },
-
-        getActiveFiltersList() {
-            const filtersList = [];
-            const labels = {
-                temperature: { cold: 'Cold Water', dual: 'Warm Water' },
-                nozzleType: { single: 'Single Nozzle', dual: 'Dual Nozzle' },
-                price: { $: 'Under $40', $$: '$40-79', $$$: '$80-119' },
-                rating: { '4.0': '4.0+ Stars', '4.5': '4.5+ Stars', '5.0': '5.0 Stars' }
-            };
-
-            Object.keys(this.filters).forEach(type => {
-                this.filters[type].forEach(value => {
-                    filtersList.push({
-                        id: `${type}-${value}`,
-                        type: type,
-                        value: value,
-                        label: labels[type][value]
-                    });
-                });
-            });
-
-            return filtersList;
-        },
-
-        getVisibleProductCount() {
-            return this.products.filter(p => this.isProductVisible(p)).length;
-        },
-
-        init() {
-            // Apply filters dynamically to table columns
-            this.$watch('filters', () => {
-                this.products.forEach(product => {
-                    const columns = document.querySelectorAll(`[data-product-id="${product.id}"]`);
-                    columns.forEach(col => {
-                        if (this.isProductVisible(product)) {
-                            col.classList.remove('hidden');
-                        } else {
-                            col.classList.add('hidden');
-                        }
-                    });
-                });
-            }, { deep: true });
-        }
-    }
-}
-</script>
 
 <!-- Comparison Table Styles -->
 <style>
@@ -3881,24 +3284,6 @@ function bidetComparison() {
     .action-button:hover::before {
         width: 200px;
         height: 200px;
-    }
-
-    /* Filter transition effects */
-    [x-cloak] {
-        display: none !important;
-    }
-
-    /* Smooth hide/show for filtered columns */
-    td[data-product-id] {
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    td[data-product-id].hidden {
-        opacity: 0;
-        transform: scale(0.95);
-        width: 0;
-        padding: 0;
-        overflow: hidden;
     }
 </style>
 
@@ -4705,7 +4090,7 @@ function bidetComparison() {
                 
                 <!-- Last Updated -->
                 <p class="text-text-secondary text-xs text-center mb-4">
-                    Last updated: 2025-10-03
+                    Last updated: 2025-10-05
                 </p>
                 
                 <!-- Domain -->
@@ -4778,7 +4163,7 @@ function bidetComparison() {
             
             <!-- Last updated - centered -->
             <p class="text-text-secondary text-xs text-center mb-6">
-                Last updated: 2025-10-03
+                Last updated: 2025-10-05
             </p>
             
             <!-- Domain - centered -->
