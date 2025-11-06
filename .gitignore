@@ -1,0 +1,180 @@
+# ===================================================
+# FactBench VerdIQ - Git Ignore Rules
+# ===================================================
+
+# ===================================================
+# SECURITY - Credentials & Secrets (CRITICAL)
+# ===================================================
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+secrets.json
+credentials.json
+config/secrets.*
+
+# ===================================================
+# Operating System Files
+# ===================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ===================================================
+# Editor & IDE Files
+# ===================================================
+# Visual Studio Code
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs (IntelliJ, WebStorm, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.*.sw[a-z]
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ===================================================
+# Build & Distribution Files
+# ===================================================
+dist/
+build/
+.output/
+.nuxt/
+.next/
+out/
+*.log
+
+# ===================================================
+# Dependencies & Package Managers
+# ===================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.yarn/
+.pnp.*
+package-lock.json
+
+# ===================================================
+# Temporary Files
+# ===================================================
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+.cache/
+tmp/
+temp/
+
+# ===================================================
+# Logs & Databases
+# ===================================================
+*.log
+logs/
+*.sql
+*.sqlite
+*.db
+
+# ===================================================
+# Testing & Coverage
+# ===================================================
+coverage/
+.nyc_output/
+*.lcov
+.jest/
+
+# ===================================================
+# Project-Specific
+# ===================================================
+# Local development files
+.local/
+local.html
+
+# Draft content not ready for publish
+drafts/
+*.draft.html
+
+# Backup files
+backups/
+*.backup
+
+# Analytics & tracking reports (generated)
+reports/
+analytics/
+
+# Image processing temporary files
+assets/images/temp/
+assets/images/originals/
+
+# ===================================================
+# Claude Code & SuperClaude
+# ===================================================
+.claude/local/
+.serena/cache/
+
+# ===================================================
+# Documentation (generated)
+# ===================================================
+# Keep docs/ for project documentation
+# But ignore auto-generated files
+docs/generated/
+docs/*.pdf
+
+# ===================================================
+# Deployment & CI/CD
+# ===================================================
+.vercel/
+.netlify/
+.github/workflows/deploy-temp.yml
+
+# ===================================================
+# Miscellaneous
+# ===================================================
+*.pid
+*.seed
+*.pid.lock
+.npm
+.eslintcache
+.stylelintcache
