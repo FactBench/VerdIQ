@@ -238,5 +238,53 @@ git add assets/images/ && git commit -m "Add images" && git push
 
 ---
 
+## Image Validation (CRITICAL)
+
+### Pre-Commit Validation
+**ALWAYS run before committing images:**
+```bash
+./scripts/validate-images.sh
+```
+
+This script checks:
+- File headers match extensions (prevents fake images)
+- No HTML error pages saved as images
+- No empty files
+- Correct format detection
+
+### Common Problems Detected
+
+| Error Type | Cause | Solution |
+|------------|-------|----------|
+| HTML content | 403 Forbidden saved as .png | Re-download image properly |
+| Extension mismatch | JPEG saved as .png | Rename to correct extension |
+| Empty file | Download failed | Re-download image |
+
+### Root Cause of Recurring Issues
+
+**Problem Pattern**: Images downloaded from protected URLs return error pages that get saved as image files.
+
+**Prevention**:
+1. Always verify image opens in viewer before copying
+2. Run `file <image.png>` to check actual content type
+3. Run validation script before every commit
+
+### Image Manifest System
+
+Each product folder should have a `MANIFEST.json`:
+```json
+{
+  "product": "derila-ergo",
+  "category": "pillows",
+  "images": {
+    "hero": { "file": "../derila-ergo-hero.png" },
+    "main": [...]
+  },
+  "htmlReferences": [...]
+}
+```
+
+---
+
 **Last Updated**: 2025-12-01
 **Maintained By**: Claude Code Sessions

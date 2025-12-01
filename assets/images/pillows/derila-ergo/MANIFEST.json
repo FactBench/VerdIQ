@@ -1,0 +1,52 @@
+{
+  "product": "derila-ergo",
+  "category": "pillows",
+  "lastUpdated": "2025-12-01",
+  "images": {
+    "hero": {
+      "file": "../derila-ergo-hero.png",
+      "description": "Main hero image - butterfly pillow with dimensions",
+      "dimensions": "1084x755",
+      "source": "RADNI_FOLDER/SLIKE/derila/sized.png"
+    },
+    "animation": {
+      "file": "animation-6.png",
+      "description": "5-zone butterfly design illustration",
+      "dimensions": "1221x654"
+    },
+    "comparison": {
+      "bad": {
+        "file": "bad-sleep-2.jpg",
+        "description": "Poor sleep posture example"
+      },
+      "good": {
+        "file": "good-sleep-2.jpg",
+        "description": "Proper sleep posture with Derila Ergo"
+      }
+    },
+    "screenshots": [
+      "Screenshot_159.png",
+      "Screenshot_160.png",
+      "Screenshot_161.png",
+      "Screenshot_162.png"
+    ],
+    "additional": [
+      "sized.png",
+      "complete-1.jpg",
+      "complete-2.jpg",
+      "complete-3.jpg",
+      "complete-4.jpg"
+    ]
+  },
+  "htmlReferences": [
+    "https://factbench.github.io/VerdIQ/assets/images/pillows/derila-ergo-hero.png",
+    "https://factbench.github.io/VerdIQ/assets/images/pillows/derila-ergo/animation-6.png",
+    "https://factbench.github.io/VerdIQ/assets/images/pillows/derila-ergo/bad-sleep-2.jpg",
+    "https://factbench.github.io/VerdIQ/assets/images/pillows/derila-ergo/good-sleep-2.jpg"
+  ],
+  "validation": {
+    "lastValidated": "2025-12-01",
+    "status": "VALID",
+    "issues": []
+  }
+}
