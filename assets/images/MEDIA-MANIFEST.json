@@ -1,0 +1,76 @@
+{
+  "project": "FactBench VerdIQ",
+  "lastUpdated": "2025-12-01",
+  "totalImages": 154,
+  "categories": {
+    "pillows": {
+      "path": "assets/images/pillows/",
+      "products": {
+        "derila-ergo": {
+          "manifest": "assets/images/pillows/derila-ergo/MANIFEST.json",
+          "heroImage": "assets/images/pillows/derila-ergo-hero.png",
+          "status": "VALID"
+        },
+        "cloudalign-mellow-pillow": {
+          "heroImage": "assets/images/pillows/cloudalign-mellow-pillow-hero.png",
+          "status": "needs-validation"
+        }
+      }
+    },
+    "pool-cleaners": {
+      "path": "assets/images/pool-cleaners/",
+      "status": "needs-validation"
+    },
+    "bidet-attachments": {
+      "path": "assets/images/bidet-attachments/",
+      "status": "needs-validation"
+    },
+    "mattresses": {
+      "path": "assets/images/mattresses/",
+      "status": "needs-validation"
+    },
+    "hand-trucks": {
+      "path": "assets/images/hand-trucks/",
+      "status": "needs-validation"
+    },
+    "pressure-washers": {
+      "path": "assets/images/pressure-washers/",
+      "status": "needs-validation"
+    },
+    "best-robot-pools": {
+      "path": "assets/images/best-robot-pools/",
+      "status": "needs-validation"
+    }
+  },
+  "validation": {
+    "lastFullValidation": "2025-12-01",
+    "script": "scripts/validate-images.sh",
+    "knownIssues": [
+      {
+        "file": "assets/images/pool-cleaners/BeatBot-AquaSense-2-Pro.png",
+        "issue": "JPEG content with .png extension",
+        "severity": "low",
+        "status": "not-blocking"
+      },
+      {
+        "file": "assets/images/bidet-attachments/tushy-hero.jpg",
+        "issue": "WebP content with .jpg extension",
+        "severity": "low",
+        "status": "not-blocking"
+      },
+      {
+        "file": "assets/images/bidet-attachments/luxe320-plus-320_hero.jpg",
+        "issue": "WebP content with .jpg extension",
+        "severity": "low",
+        "status": "not-blocking"
+      }
+    ]
+  },
+  "workflows": {
+    "deployment": "scripts/deploy-media.sh",
+    "validation": "scripts/validate-images.sh",
+    "documentation": "docs/IMAGE-WORKFLOW.md"
+  },
+  "sourceFolder": "RADNI_FOLDER/SLIKE/",
+  "htmlBaseUrl": "https://factbench.github.io/VerdIQ/assets/images/"
+}
