@@ -178,3 +178,6 @@ docs/*.pdf
 .npm
 .eslintcache
 .stylelintcache
+
+# Working folders
+RADNI_FOLDER/
