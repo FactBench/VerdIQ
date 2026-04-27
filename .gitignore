@@ -152,7 +152,16 @@ assets/images/originals/
 # Claude Code & SuperClaude
 # ===================================================
 .claude/local/
-.serena/cache/
+.claude/settings.local.json
+.serena/
+.mcp.json
+.playwright-mcp/
+
+# ===================================================
+# Windows filesystem artifacts
+# ===================================================
+*Zone.Identifier
+*:Zone.Identifier
 
 # ===================================================
 # Documentation (generated)

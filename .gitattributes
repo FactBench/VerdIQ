@@ -1,0 +1,7 @@
+# Force LF line endings for shell scripts on all platforms.
+# Without this, Git on Windows converts to CRLF, which breaks
+# `#!/bin/bash` shebang interpretation in some environments.
+*.sh text eol=lf
+
+# Default text handling: let Git auto-detect, but normalize on commit.
+* text=auto
