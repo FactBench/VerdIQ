@@ -1,5 +1,34 @@
 # FactBench VerdIQ - Project Rules
 
+## ENVIRONMENT — Windows (od 27.04.2026)
+
+Projekat je prebačen iz WSL Ubuntu (`~/projects/FactBenchV2`) na Windows (`F:\Projects\FactBenchV2`).
+
+- **Bash skripte** (`scripts/*.sh`) — pokretati kroz **Git Bash**, NE PowerShell ni CMD.
+- **`serve.sh`** koristi Python (`python -m http.server 8000`) — provjeri `python --version` u Git Bash.
+- **Putanje** — koristi forward slash `/` u skriptama (Git Bash razumije), backslash `\` samo u native Windows alatima.
+- **Linije** — pazi na CRLF vs LF kad editujеš `.sh` fajlove preko Windows editora (Git autoCRLF treba false za sh).
+
+## TOKEN ROTATION — KRITIČNO 🔴
+
+`.env` GitHub PAT datiran 2024-11-06, planirana rotacija 04.02.2025 — **propušteno 15+ mjeseci**. Po ARHIVI TitanAI (25.02.2026) token je tada regeneriran ali `.env` ovdje možda nije update-an.
+
+**Prije bilo kakvog `git push` ili `deploy.sh`:**
+1. Provjeri da li token u `.env` radi: `git ls-remote origin` (ako traži lozinku ili 401 — token je expired).
+2. Ako expired → user mora regenerirati na GitHub Settings → Developer → PAT (scope: `repo`, `workflow`).
+3. Update `.env`, NIKAD ne commit-uj `.env` (već u `.gitignore`).
+
+## VEZA SA TitanAI EKOSISTEMOM
+
+FactBenchV2 je dio Sanelovog projektnog ekosistema. Glavni HQ je **TitanAI** (`F:\Projects\titanai`).
+
+- **TICKLER:** Tamo se vodi tracker za FactBench taskove (`PLAN.md`).
+- **CORE DATA:** Sve lične info i odnosi su u `F:\Projects\titanai\CORE DATA.md`.
+- **Cross-project workflow:** Kad obavi posao u FactBench, update tracker u TitanAI.
+- **Sister projekti:** MasterReddit (`F:\Projects\MasterReddit`), TitanRedditLoop, RedditOps, RedditAsistent, titan-site, titan-network.
+
+---
+
 ## CRITICAL: Media Asset Handling
 
 **This project has recurring image corruption issues. These rules are MANDATORY.**
