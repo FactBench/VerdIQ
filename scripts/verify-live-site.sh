@@ -23,18 +23,22 @@ echo "✅ Page fetched successfully"
 echo ""
 
 # Check for template placeholders on live site
+# Strip <template>...</template> blocks first — placeholders inside HTML5
+# <template> tags are legitimate (used by JS for client-side rendering) and
+# not visible to end users, so they should not trigger an alarm.
 echo "=== 1. Checking for template placeholders on live site ==="
-PLACEHOLDERS=$(echo "$PAGE_CONTENT" | grep -c '{{.*}}' || true)
+VISIBLE_CONTENT=$(echo "$PAGE_CONTENT" | python -c "import sys,re; print(re.sub(r'<template[^>]*>.*?</template>','',sys.stdin.read(),flags=re.DOTALL))")
+PLACEHOLDERS=$(echo "$VISIBLE_CONTENT" | grep -c '{{.*}}' || true)
 if [ $PLACEHOLDERS -gt 0 ]; then
-  echo "❌ FAIL: Found $PLACEHOLDERS template placeholders on LIVE SITE!"
+  echo "❌ FAIL: Found $PLACEHOLDERS template placeholders on LIVE SITE (outside <template> blocks)!"
   echo ""
   echo "Placeholders found:"
-  echo "$PAGE_CONTENT" | grep -o '{{[^}]*}}' | head -5
+  echo "$VISIBLE_CONTENT" | grep -o '{{[^}]*}}' | head -5
   echo ""
   echo "⚠️  CRITICAL: Template variables exposed in production!"
   exit 1
 else
-  echo "✅ PASS: No template placeholders on live site"
+  echo "✅ PASS: No template placeholders visible on live site"
 fi
 
 echo ""
