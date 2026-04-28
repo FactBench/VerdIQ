@@ -190,3 +190,6 @@ docs/*.pdf
 
 # Working folders
 RADNI_FOLDER/
+
+# Audit reports (factbench-audit skill)
+ANALIZE/
