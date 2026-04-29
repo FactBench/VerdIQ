@@ -143,6 +143,19 @@ For bidet / analog-to-digital categories without a fixed brand mapping, derive e
 
 If only condition 1 holds (no Add to Cart) but third-party sellers are listed, classify as `WARN_BUYBOX_LOST` (less severe, no replacement-ASIN search needed).
 
+### Rule 5 — `<template>`-aware placeholder classification (Phase 3)
+
+A `{{...}}` token is NOT automatically a production leak. HTML5 `<template>` elements contain inert content — the markup inside is parsed but never rendered, never executed, never indexed by Google. JavaScript can `cloneNode` template content into the live DOM at runtime; only the cloned, populated copies are user-visible. Placeholders inside an unused `<template>` are dead scaffolding, not exposure.
+
+**Required two-step classification:**
+
+1. **Locate every `<template>...</template>` span** in the document. Compute opening offset and closing offset for each.
+2. **For each `{{...}}` match, check enclosure.** If the match offset is inside any template span → `PLACEHOLDER_LEAK_INERT` (−2, advisory). If outside all templates → `PLACEHOLDER_LEAK_VISIBLE` (−20, severe production exposure).
+
+**The audit report MUST cite both offsets** (the placeholder's and the enclosing template's, or "outside all templates"). Without these citations the finding is unreviewable.
+
+**Why:** INC-2026-04-29-AUDIT-TEMPLATE-MISCLASSIFICATION — the 2026-04-29-1022 audit applied a −60 SEO penalty for `{{PRODUCT_NAME}}`, `{{CHECK_PRICE_URL}}`, `{{FULL_REVIEW_URL}}` claimed as "rendered text in the final HTML, not inside a `<template>` block." Independent verification proved all three were inside `<template id="product-card-template">` (pool offsets 142705..144937, bidet 195657..199130). The −60 penalty was unjustified; true SEO score was understated by ~60 points. This is the same shape of failure as INC-2026-04-28-AUDIT-FALSE-POSITIVE: insufficient classification rigor producing inflated severity. The fix is structural: template stripping must be offset-based, not regex-substitution-based, because regex with single-line minified HTML cannot reliably locate matched closing tags.
+
 ## Non-goals
 
 - **Do not fix anything.** Read-only.
