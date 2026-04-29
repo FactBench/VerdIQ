@@ -67,6 +67,82 @@ This file is loaded by the `@factbench-auditor` agent during Phase 0. It contain
 - **Stale sitemap lastmod**: review page's `lastmod` predates the file's last-modified date in the live HTML.
 - **Affiliate tag missing**: any `amazon.com/dp/<ASIN>` link without `?tag=factbench-r-20` is a revenue leak.
 
+## Audit-output integrity rules (post INC-2026-04-28-AUDIT-FALSE-POSITIVE)
+
+These rules exist because on 2026-04-28 the auditor hallucinated 3 ASIN findings (Polaris 9550, Betta SE, Wave 80 — all CRITICAL FAIL_TITLE_MISMATCH). Manual verification + independent re-scrape confirmed all 3 ASINs were correct, in stock, at the expected price. Root cause: agent likely confused "Compare with similar items" carousel preview (where alternative products like VRXIQ+ surface at different prices) with the main product title, and the report only contained the agent's *interpretation* — never the raw scrape field — so the hallucination was invisible during review.
+
+If a future audit produces another false-positive MISMATCH, the next step is replacing a correct ASIN with a wrong one — direct production damage, the exact opposite of what the audit is for.
+
+### Rule 1 — Mandatory raw citation (FAIL/WARN findings)
+
+For every ASIN classified as `FAIL_TITLE_MISMATCH`, `FAIL_404`, `WARN_OOS`, or `WARN_RENEWED`, the audit report MUST include the raw scrape fields verbatim, in a fenced code block, immediately under the finding line. No paraphrasing, no truncation past the first 200 chars of `product_title`. Required fields:
+
+```
+ASIN: <asin>
+product_title (raw): "<exact string from scrape JSON>"
+brand (raw): "<exact string>"
+current_price_usd (raw): <number or null>
+is_available (raw): <true|false>
+is_renewed_or_refurbished (raw): <true|false>
+error_message_if_any (raw): "<exact string or null>"
+scrape_url: <url>
+scrape_proxy: <stealth|other>
+scrape_maxAge: <number>
+```
+
+If the agent cannot produce these raw fields (e.g. malformed JSON, scrape failed), the classification MUST be `SCRAPE_FAILED` — not FAIL/WARN — and the failure mode must be cited.
+
+**Why:** Without raw citation, no reviewer (Sanel or future Claude) can independently judge whether the agent's interpretation is correct. The 2026-04-28 false positives would have been caught at review time if the report had cited the actual `product_title` field, since the raw value was almost certainly the correct product name.
+
+### Rule 2 — Mandatory secondary verification (FAIL_TITLE_MISMATCH, WARN_OOS)
+
+For every `FAIL_TITLE_MISMATCH` and every `WARN_OOS`, before writing the finding to the report, the agent MUST run a second independent scrape of the same ASIN under a different fingerprint. Acceptable second-scrape variants (pick one):
+
+- `mobile: true` (mobile UA, different render path)
+- `proxy: "stealth"` second pass with `actions: [{ type: "wait", milliseconds: 3000 }]` to defeat cache-edge artefacts
+- Direct `curl -A "<mobile UA>" -sL https://www.amazon.com/dp/<ASIN>` and grep `<title>` from the raw HTML
+
+Decision matrix after the secondary scrape:
+
+| Primary | Secondary | Outcome |
+|---|---|---|
+| FAIL_TITLE_MISMATCH | matches expected brand/product | Downgrade to `INCONCLUSIVE` — do NOT write CRITICAL. Note both results in report. |
+| FAIL_TITLE_MISMATCH | also mismatches | Confirmed FAIL — write to report with BOTH raw citations. |
+| WARN_OOS | available=true | Downgrade to `OK` (cache artefact, mention in budget notes). |
+| WARN_OOS | also unavailable | Confirmed WARN_OOS — write with both citations. |
+
+Secondary verification cost: ~3-5 extra credits per FAIL/WARN. Add this to Phase 0 budget block.
+
+**Why:** A single Firecrawl scrape can return cache artefacts, anti-bot stub pages, or mis-extracted carousel data. INC-2026-04-28 produced 3 false-positive MISMATCH findings from single-source scrapes. Second-source rule is the cheapest possible insurance against that class of bug.
+
+### Rule 3 — Brand hard-guard (overrides FAIL_TITLE_MISMATCH)
+
+If the Amazon page's HTML `<title>` element OR the raw `product_title` field contains the **expected brand name** for the review (case-insensitive substring match), the agent **MUST NOT** classify as `FAIL_TITLE_MISMATCH`. This is an absolute override, not a heuristic.
+
+Brand mapping (per current category, derive from review slug):
+
+- `polaris-*` → expected brand: `Polaris`
+- `aiper-*` → expected brand: `Aiper` or `AIPER`
+- `dolphin-*` → expected brand: `Dolphin` or `Maytronics`
+- `wybot-*` → expected brand: `WYBOT` or `Wybot`
+- `beatbot-*` → expected brand: `Beatbot` or `BEATBOT`
+- `betta-*` → expected brand: `Betta`
+
+If brand match → product is the correct family. The hard-guard catches cases where the model name string differs in punctuation/year/SKU but the underlying product is correct (`Polaris 9550 Sport` vs `Polaris VRXIQ+` is the *only* class of legitimate FAIL inside the brand — but that requires explicit model-number mismatch, NOT just title-substring mismatch). When the hard-guard fires, downgrade to `WARN_BRAND_OK_MODEL_DRIFT` if there's still suspicion, but never CRITICAL.
+
+For bidet / analog-to-digital categories without a fixed brand mapping, derive expected brand from the listing card's displayed name (first capitalized word) before scrape, store it in the working set, and apply the same guard.
+
+**Why:** INC-2026-04-28 — Polaris 9550 review, scrape returned a page whose title contained "Polaris" (the correct brand), yet agent flagged FAIL_TITLE_MISMATCH because some unrelated text in the page matched a different SKU. Brand hard-guard would have blocked the false positive immediately.
+
+### Rule 4 — OOS double-check (Phase 1)
+
+`WARN_OOS` is proclaimed only when **both** conditions hold:
+
+1. The page does NOT contain "Add to Cart" / "Buy Now" buttons or `is_available=true` in the JSON extraction.
+2. The page does NOT contain "Other sellers on Amazon" / "Available from these sellers" — these often indicate the main listing is paused but third-party stock exists, which is functionally equivalent to OK for affiliate revenue.
+
+If only condition 1 holds (no Add to Cart) but third-party sellers are listed, classify as `WARN_BUYBOX_LOST` (less severe, no replacement-ASIN search needed).
+
 ## Non-goals
 
 - **Do not fix anything.** Read-only.
