@@ -29,12 +29,13 @@ If any required input is missing, STOP and return an error to the caller.
 5. Create output directory: `ANALIZE/factbench-audit-<date>/` via Bash `mkdir -p`.
 6. **Gate G — pre-dispatch credit budget statement (mandatory before any phase that hits Firecrawl).** Before running Phase 1, write a 5-line budget block to the working report stub:
    ```
-   Credits expected this run: <ASIN_count> × ~5 (stealth) = <N>
+   Credits expected this run: <ASIN_count> × 9 (Firecrawl stealth proxy real rate) = <N>
    Plus auto-self-heal headroom: ~20% of N for cache-artefact re-scrapes
-   Plus FAIL_404 ASIN-replacement verification: ~3 credits per confirmed 404
-   Plus Gate B-Verify secondary scrapes: ~5 credits per FAIL_TITLE_MISMATCH or WARN_OOS candidate (estimate up to 30% of ASINs surface a candidate first-pass)
+   Plus FAIL_404 ASIN-replacement verification: ~9 credits per confirmed 404 (one stealth scrape per candidate)
+   Plus Gate B-Verify secondary scrapes: ~9 credits per FAIL_TITLE_MISMATCH or WARN_OOS candidate (estimate up to 30% of ASINs surface a candidate first-pass)
    Total expected ceiling: <N + headroom + 404 budget + secondary budget>
    ```
+   Stealth proxy rate corrected from 5→9 credits/call after 2026-04-29 audit run revealed actual billing (`ANALIZE/factbench-audit-2026-04-29-1022.md` Phase 0 note). Budget exceeded approval ceiling by ~35% on that run because the per-call rate was underestimated, even though the scrape count was within plan.
    - If the ceiling exceeds 50 credits, **STOP** and surface the budget to the caller. Wait for explicit "kreni" / "go" before dispatching Phase 1. Do NOT proceed on implicit approval.
    - Origin: Titan-ecosystem incident INC-018 (4 unauthorized Gate F canary dispatches in one session burned ~1000 Firecrawl credits, killed Monday cron until quota reset). FactBench is on the same Firecrawl tenant as Titan — quota is shared. A runaway audit here costs Titan credits too.
    - Daily counter: this is dispatch #1 of `factbench-audit` today by default. If you can detect (via prior `ANALIZE/factbench-audit-<date>-*` files for the same date) that this is dispatch #2, STOP and require Sanel approval explicitly. Dispatch #3 same day is forbidden.
@@ -235,5 +236,5 @@ The most important phase. Skip if `scope` excludes it.
 - **Single-source is a flag, not a fix.** If Firecrawl says an ASIN is 404, that's a finding for the human to resolve. Suggest replacement ASINs but never auto-apply.
 - **Honest uncertainty.** If Firecrawl returns malformed JSON or the scrape fails, report `SCRAPE_FAILED for <ASIN>` — do NOT fall back to optimistic assumptions.
 - **Rate limit safety.** For `scope=all` with `category=all` (~30+ ASINs across all categories), run Phase 1 sequentially, batched 5-at-a-time, to stay under Firecrawl per-minute caps.
-- **Budget awareness.** Full all-categories audit ≈ 30-40 Firecrawl credits baseline; auto-self-heal on cache artefacts can add ~20% headroom; confirmed FAIL_404s with replacement-candidate verification add ~3 credits each. Warn caller if expected ceiling exceeds 50 (this is the Gate G threshold above).
+- **Budget awareness.** Full all-categories audit ≈ 200-220 Firecrawl credits baseline (~22 ASINs × 9 credits stealth — actual billing rate measured 2026-04-29); auto-self-heal on cache artefacts can add ~20% headroom; confirmed FAIL_404s and Gate B-Verify secondary scrapes each add ~9 credits per candidate. Warn caller if expected ceiling exceeds 50 (this is the Gate G threshold above) — for full all-cat runs the threshold will always be exceeded; require explicit "kreni" approval citing the projected ceiling.
 - **No fixes.** This is the most important rule. Audit is observation only. Even if you find something obvious, document it — don't touch it.
