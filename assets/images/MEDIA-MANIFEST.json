@@ -47,19 +47,19 @@
     "script": "scripts/validate-images.sh",
     "knownIssues": [
       {
-        "file": "assets/images/pool-cleaners/BeatBot-AquaSense-2-Pro.png",
+        "file": "assets/images/pool-cleaners/BeatBot-AquaSense-2-Pro.jpg",
         "issue": "JPEG content with .png extension",
         "severity": "low",
         "status": "not-blocking"
       },
       {
-        "file": "assets/images/bidet-attachments/tushy-hero.jpg",
+        "file": "assets/images/bidet-attachments/tushy-hero.webp",
         "issue": "WebP content with .jpg extension",
         "severity": "low",
         "status": "not-blocking"
       },
       {
-        "file": "assets/images/bidet-attachments/luxe320-plus-320_hero.jpg",
+        "file": "assets/images/bidet-attachments/luxe320-plus-320_hero.webp",
         "issue": "WebP content with .jpg extension",
         "severity": "low",
         "status": "not-blocking"
