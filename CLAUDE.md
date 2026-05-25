@@ -9,14 +9,28 @@ Projekat je prebačen iz WSL Ubuntu (`~/projects/FactBenchV2`) na Windows (`F:\P
 - **Putanje** — koristi forward slash `/` u skriptama (Git Bash razumije), backslash `\` samo u native Windows alatima.
 - **Linije** — pazi na CRLF vs LF kad editujеš `.sh` fajlove preko Windows editora (Git autoCRLF treba false za sh).
 
-## TOKEN ROTATION — KRITIČNO 🔴
+## GITHUB AUTH & SECURITY 🔴 (ažurirano 25.05.2026)
 
-`.env` GitHub PAT datiran 2024-11-06, planirana rotacija 04.02.2025 — **propušteno 15+ mjeseci**. Po ARHIVI TitanAI (25.02.2026) token je tada regeneriran ali `.env` ovdje možda nije update-an.
+> Puna referenca: [`docs/GITHUB-SECURITY.md`](docs/GITHUB-SECURITY.md)
 
-**Prije bilo kakvog `git push` ili `deploy.sh`:**
-1. Provjeri da li token u `.env` radi: `git ls-remote origin` (ako traži lozinku ili 401 — token je expired).
-2. Ako expired → user mora regenerirati na GitHub Settings → Developer → PAT (scope: `repo`, `workflow`).
-3. Update `.env`, NIKAD ne commit-uj `.env` (već u `.gitignore`).
+### Auth — token NIJE više u remote URL-u
+Od 25.05.2026 PAT je maknut iz `.git/config` i prebačen u **Windows Git Credential Manager** (šifrovano). Remote je čist: `https://github.com/FactBench/VerdIQ.git`.
+
+- **NE** vraćaj token u remote URL (`https://ghp_...@github.com/...`) — to je leak na disku.
+- `git push`/`pull` rade automatski (GCM daje token). Ako traži auth → token istekao, user regeneriše.
+- **Stari PAT u GCM-u nema `workflow` scope.** Za push koji dira `.github/workflows/*` koristi `gh` CLI token:
+  `git -c credential.helper='!gh auth git-credential' push`
+- Pri rotaciji: novi PAT treba scope `repo` **+ `workflow`**. Vidi [`docs/token-rotation.md`](docs/token-rotation.md).
+
+### main je ZAŠTIĆEN (branch protection)
+`main` se NE može push-ati direktno. Sve ide kroz PR:
+1. Radi na feature branchu, push, otvori PR.
+2. **gitleaks** check mora proći (skenira secrets) prije merge-a.
+3. Force-push i brisanje main-a su blokirani.
+
+### NIKAD hardkodirati secrets
+- API ključ → env var ili `.secrets/` (gitignored), NE u kod. gitleaks će blokirati PR ako nađe.
+- NIKAD ne commit-uj `.env` (već u `.gitignore`).
 
 ## VEZA SA TitanAI EKOSISTEMOM
 
