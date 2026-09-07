@@ -115,6 +115,9 @@ YEAR=$(date +%Y)
 # Perform replacements
 # Order matters: [CATEGORY NAME] must be substituted before [CATEGORY],
 # otherwise the shorter marker eats the front of the longer one.
+# The template itself ships noindex so the raw file at /templates/ never gets
+# crawled; a real review page must be indexable.
+sed -i 's|<meta name="robots" content="noindex, nofollow">|<meta name="robots" content="index, follow">|' "${FILE_PATH}"
 sed -i "s|\[CATEGORY HREF\]|${CATEGORY_HREF}|g" "${FILE_PATH}"
 sed -i "s|\[CATEGORY NAME\]|${CATEGORY_TITLE}|g" "${FILE_PATH}"
 sed -i "s|\[PRODUCT NAME\]|${PRODUCT_TITLE}|g" "${FILE_PATH}"
