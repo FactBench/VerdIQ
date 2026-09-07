@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /templates/
 Crawl-delay: 1
 
 # Specific rules for major search engines
