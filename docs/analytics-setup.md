@@ -4,7 +4,7 @@
 
 ### Current Configuration
 - **Measurement ID**: G-CXPNJ0FEG7
-- **API Secret**: e3a2Ckgp8xx-HGm9g (in .env file)
+- **API Secret**: kept only in the private `.env` file as `GA4_API_SECRET` (never commit it)
 - **Website**: https://factbench.github.io/VerdIQ/
 
 ### Integration Code
