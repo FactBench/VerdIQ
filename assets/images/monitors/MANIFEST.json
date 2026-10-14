@@ -1,0 +1,35 @@
+[
+  {
+    "file": "pg32ucdm3.webp",
+    "exact_model": "ASUS ROG Swift OLED PG32UCDM3",
+    "asin": "B0G31KVQ1H",
+    "source_url": "https://m.media-amazon.com/images/I/51ev1WaV80L._SL500_.jpg",
+    "source_file": "B0G31KVQ1H-1.webp",
+    "width": 500,
+    "height": 500,
+    "bytes": 46002,
+    "sha256": "bf88f3939a33d042356284573dd67a57e2d6c95c1711aadf8ed1d2dd26b636e4"
+  },
+  {
+    "file": "u27g4xm.webp",
+    "exact_model": "AOC U27G4XM",
+    "asin": "B0GT2HRS9C",
+    "source_url": "https://m.media-amazon.com/images/I/51VWDciNrHL._SL500_.jpg",
+    "source_file": "B0GT2HRS9C-1.webp",
+    "width": 500,
+    "height": 500,
+    "bytes": 30322,
+    "sha256": "77f14ec6fdd9f67e88ad4eeea4d0bb2acf6d01d0932f6be38977b7305a41990e"
+  },
+  {
+    "file": "s2725qs.webp",
+    "exact_model": "Dell S2725QS",
+    "asin": "B0F1GF1KFC",
+    "source_url": "https://m.media-amazon.com/images/I/41+pt9WOb2L._SL500_.jpg",
+    "source_file": "B0F1GF1KFC-1.webp",
+    "width": 500,
+    "height": 500,
+    "bytes": 11056,
+    "sha256": "d29658adb16619551c122e2ed5879bc617299321099e568c866e57f9f2796913"
+  }
+]
